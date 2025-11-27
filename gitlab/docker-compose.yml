@@ -1,0 +1,21 @@
+name: Hello
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    restart: always
+    hostname: 'gitlab.thethalium.ch'
+    ports:
+      - '4080:80'
+      - '4443:443'
+      - '422:22'
+    volumes:
+      - '/home/sven/gitlab/config:/config/etc/gitlab'
+      - '/home/sven/gitlab/logs:/var/log/gitlab'
+      - '/home/sven/gitlab/var:/var/opt/gitlab'
+    shm_size: '256m'
+networks:
+  default:
+    external: true
+

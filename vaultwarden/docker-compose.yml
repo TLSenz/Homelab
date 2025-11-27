@@ -1,4 +1,5 @@
 version: "3"
+name: hel
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -7,9 +8,10 @@ services:
     ports:
      - 9445:80 #map any custom port to use (replace 9445 not 80)
     volumes:
-     - ./bitwarden:/data:rw
+     - ~/bitwarden:/data:rw
     environment:
-     - ROCKET_TLS=${ROCKET_TLS}
+     - ROCKET_TLS_CERTS="/data/certs.pem"
+     - ROCKET_TLS_KEY="/data/key.pem"
      - ADMIN_TOKEN=${ADMIN_TOKEN}
      - WEBSOCKET_ENABLED=true
      - SIGNUPS_ALLOWED=true
