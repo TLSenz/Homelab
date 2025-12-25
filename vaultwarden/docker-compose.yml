@@ -1,5 +1,3 @@
-version: "3"
-name: hel
 services:
   vaultwarden:
     image: vaultwarden/server:latest
