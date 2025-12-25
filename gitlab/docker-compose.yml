@@ -9,7 +9,7 @@ services:
       - '4443:443'
       - '422:22'
     volumes:
-      - '$GITLAB_HOME:/config/etc/gitlab'
-      - '$GITLAB_HOME:/var/log/gitlab'
-      - '$GITLAB_HOME:/var/opt/gitlab'
+      - '/home/worker/config:/config/etc/gitlab'
+      - '/home/worker/log:/var/log/gitlab'
+      - '/home/worker/opt:/var/opt/gitlab'
     shm_size: '256m'
